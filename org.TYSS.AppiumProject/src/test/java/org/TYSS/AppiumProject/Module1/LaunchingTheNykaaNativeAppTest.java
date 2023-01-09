@@ -16,5 +16,6 @@ public class LaunchingTheNykaaNativeAppTest extends BaseClass2 {
 	//	driver.findElement(By.id("com.fsn.nykaa:id/tvSkipButton")).click();
 		driver.findElementByXPath("//android.widget.TextView[@text='Skip for now']").click();
 		driver.findElementById("com.fsn.nykaa:id/tv_search").click();
+		
 	}
 }
