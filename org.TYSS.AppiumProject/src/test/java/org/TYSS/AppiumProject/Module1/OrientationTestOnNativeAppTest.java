@@ -23,8 +23,6 @@ public class OrientationTestOnNativeAppTest extends BaseClass3 {
 	public static void main(String[] args) throws MalformedURLException, Throwable {	
 		AndroidDriver<AndroidElement> driver= capabilities();
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-		//int left = dimention.height/2;
-		//driver.findElementByXPath("//android.widget.TextView[@text='Skip for now']").click();
 		driver.findElement(By.xpath("//android.widget.TextView[@text='Continue with Google']")).click();
 		driver.findElementByXPath("//android.widget.TextView[@text='Pitale Shubham']").click();
 		driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.fsn.nykaa:id/tapToPlay']")).click();

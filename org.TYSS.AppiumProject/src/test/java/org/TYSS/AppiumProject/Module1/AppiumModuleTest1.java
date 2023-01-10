@@ -14,5 +14,4 @@ public class AppiumModuleTest1 extends BaseClass {
 		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
 		driver.get("https://www.nykaa.com/");
 	}
-	
 }
