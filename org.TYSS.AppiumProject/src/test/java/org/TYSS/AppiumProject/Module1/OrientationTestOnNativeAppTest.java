@@ -19,11 +19,26 @@ public class OrientationTestOnNativeAppTest extends BaseClass3 {
 		TouchAction action= new TouchAction(driver);
 		action.press(PointOption.point(pointX, pointY)).waitAction(WaitOptions.waitOptions(Duration.ofSeconds(10))).moveTo(PointOption.point(xOffset, yOffset)).release().perform();
 	}
+	
+	public static void clickOnBottomNykaaModule(AndroidDriver driver, String bottomElement) {
+		if (bottomElement.equalsIgnoreCase("Offers")) {
+			driver.findElementByXPath("//android.widget.FrameLayout[@content-desc=\"Offers\"]").click();
+		}
+		else if (bottomElement.equalsIgnoreCase("Categories")) {
+			driver.findElementByXPath("//android.widget.FrameLayout[@content-desc=\"Categories\"]").click();
+		} 
+		else if (bottomElement.equalsIgnoreCase("Stream")) {
+			driver.findElementByXPath("//android.widget.FrameLayout[@content-desc=\"Stream\"]").click();
+		}
+		else {
+			driver.findElementByXPath("//android.widget.FrameLayout[@content-desc=\"Account\"]").click();
+		}
+	}
 
 	public static void main(String[] args) throws MalformedURLException, Throwable {	
 		AndroidDriver<AndroidElement> driver= capabilities();
 		driver.manage().timeouts().implicitlyWait(15,TimeUnit.SECONDS);
-		driver.findElement(By.xpath("//android.widget.TextView[@text='Continue with Google']")).click();
+		driver.findElementById("com.fsn.nykaa:id/tvGoogleSignIn").click();
 		driver.findElementByXPath("//android.widget.TextView[@text='Pitale Shubham']").click();
 		driver.findElement(By.xpath("//android.widget.Button[@resource-id='com.fsn.nykaa:id/tapToPlay']")).click();
 		driver.findElement(By.xpath("//android.widget.Button[@text='Start Shopping']")).click();
@@ -38,8 +53,10 @@ public class OrientationTestOnNativeAppTest extends BaseClass3 {
 		OrientationTestOnNativeAppTest.swipingAction(driver, 987, 483, 110, 483);
 		OrientationTestOnNativeAppTest.swipingAction(driver, 987, 483, 110, 483);
 		OrientationTestOnNativeAppTest.swipingAction(driver, 987, 483, 110, 483);
-		TouchAction act= new TouchAction(driver);
-		act.tap(PointOption.point(939, 490)).perform();
+//		TouchAction act= new TouchAction(driver);
+//		act.tap(PointOption.point(939, 490)).perform();
+		
+		OrientationTestOnNativeAppTest.clickOnBottomNykaaModule(driver, "Stream");
 		//driver.quit();
 	}
 }
